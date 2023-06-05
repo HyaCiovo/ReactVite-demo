@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import './App.css'
 import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
+import TestPage from "./pages/test";
 import ErrorPage from "./pages/404";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
