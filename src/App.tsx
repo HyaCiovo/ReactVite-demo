@@ -1,30 +1,25 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Router from "./router";
 import './App.css'
-import HomePage from "./pages/home";
-import AboutPage from "./pages/about";
-import TestPage from "./pages/test";
-import ErrorPage from "./pages/404";
+import { Link } from "react-router-dom";
 
 const App = () => {
+
+  const queryClient = new QueryClient();
+
   return (
-    <div className="app">
-      <nav>
-        <Link to="/home">
-          Go Home
-        </Link>
-        /
-        <Link to="/about">
-          Go About
-        </Link>
-      </nav>
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/test" element={<TestPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div id="App" className="App">
+        <nav>
+          <Link to="/">To Home</Link>
+          /
+          <Link to="about">To About</Link>
+          /
+          <Link to="test">To Test</Link>
+        </nav>
+        <Router />
+      </div>
+    </QueryClientProvider>
   )
 }
 

@@ -1,26 +1,27 @@
-import { useState } from "react"
 import styles from "./styles.module.less"
 import { Button } from "antd"
+import useStores from "@/hooks/useStores"
+import { observer } from "mobx-react-lite"
 
-const Counter = () => {
-  const [num, setNumber] = useState<number>(0)
+const Counter = observer(() => {
+  const { counter } = useStores()
 
   const increment = () => {
-    setNumber(num => num + 1)
+    counter.increase()
   }
 
   const decrement = () => {
-    setNumber(num => num - 1)
+    counter.decrease()
   }
 
   return <>
     <div className={styles.counter}>
       <Button onClick={decrement}>-</Button>
-      <div className={styles.number}>{num}</div>
+      <div className={styles.number}>{counter.count}</div>
       <Button onClick={increment}>+</Button>
     </div>
-    <Button className={styles.resetbtn} onClick={() => setNumber(0)}>Reset重置</Button>
+    <Button className={styles.resetbtn} onClick={() => counter.reset()}>Reset重置</Button>
   </>
-}
+})
 
 export default Counter
