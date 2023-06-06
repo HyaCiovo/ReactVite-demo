@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styles from "./styles.module.less"
+import { Button } from "antd"
 
 const Counter = () => {
   const [num, setNumber] = useState<number>(0)
@@ -14,11 +15,11 @@ const Counter = () => {
 
   return <>
     <div className={styles.counter}>
-      <button onClick={decrement}>-</button>
+      <Button onClick={decrement}>-</Button>
       <div className={styles.number}>{num}</div>
-      <button onClick={increment}>+</button>
+      <Button onClick={increment}>+</Button>
     </div>
-    <button className={styles.resetbtn} onClick={() => setNumber(0)}>Reset重置</button>
+    <Button className={styles.resetbtn} onClick={() => setNumber(0)}>Reset重置</Button>
   </>
 }
 

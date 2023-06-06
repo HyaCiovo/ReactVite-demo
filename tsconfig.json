@@ -7,6 +7,9 @@
         "src/*"
       ]
     },
+    "types": [
+      "node"
+    ],
     "useDefineForClassFields": true,
     "lib": [
       "ES2020",

@@ -1,8 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    host: "0.0.0.0",
+    open: true,
+    port: 8080,
+    proxy: {},
+  },
   plugins: [react()],
   resolve: {
     alias: {
@@ -10,6 +18,9 @@ export default defineConfig({
     },
   },
   css: {
+    postcss: {
+      plugins: [tailwindcss, autoprefixer],
+    },
     // 对css的行为进行配置
     preprocessorOptions: {
       // key + config key代表预处理器的名
