@@ -7,9 +7,9 @@
         "src/*"
       ]
     },
-    "types": [
-      "node"
-    ],
+    // "types": [
+    //   "node"
+    // ],
     "useDefineForClassFields": true,
     "experimentalDecorators": true,
     "lib": [
