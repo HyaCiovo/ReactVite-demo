@@ -1,6 +1,6 @@
 const Login = () => {
   return (
-    <h1>Login登录页</h1>
+    <h1>Login Page</h1>
   )
 }
 

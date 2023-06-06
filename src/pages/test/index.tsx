@@ -6,7 +6,7 @@ const TestPage = observer(() => {
   const { counter } = useStores()
   const reset = () => {
     counter.reset()
-    message.info("计数器已归零")
+    message.info("The Counter has been reset!")
   }
   return <>
     <h1>This is Test</h1>

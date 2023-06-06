@@ -1,15 +1,6 @@
 import React from "react";
-import ErrorPage from "@/pages/404";
 import { Route, Routes } from "react-router-dom";
 import { Space, Spin } from "antd";
-
-
-interface router {
-  name: string,
-  path: string;
-  element: any;
-  children?: Array<router>;
-}
 
 const Loading = () => {
   return (
@@ -18,7 +9,7 @@ const Loading = () => {
     </Space>
   )
 }
-const routers: Array<router> = [
+const routers = [
   {
     name: "Home",
     path: "/",
@@ -35,9 +26,19 @@ const routers: Array<router> = [
     element: React.lazy(() => import("@/pages/test")),
   },
   {
+    name: "Login",
+    path: "login",
+    element: React.lazy(() => import("@/pages/login")),
+  },
+  {
+    name: "Account",
+    path: "account",
+    element: React.lazy(() => import("@/pages/account")),
+  },
+  {
     name: "404",
     path: "*",
-    element: ErrorPage,
+    element: React.lazy(() => import("@/pages/404")),
   },
 ];
 
@@ -46,7 +47,7 @@ const Router = () => {
     <Routes>
       {routers.map(item => {
         return <Route
-          index
+          {...item}
           key={item.name}
           path={item.path}
           element={

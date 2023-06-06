@@ -20,7 +20,7 @@ const Counter = observer(() => {
       <div className={styles.number}>{counter.count}</div>
       <Button onClick={increment}>+</Button>
     </div>
-    <Button className={styles.resetbtn} onClick={() => counter.reset()}>Reset重置</Button>
+    <Button className={styles.resetbtn} onClick={() => counter.reset()}>Reset</Button>
   </>
 })
 
