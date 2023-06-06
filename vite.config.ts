@@ -1,20 +1,30 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "path";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "./",
   server: {
     host: "0.0.0.0",
-    open: true,
-    port: 8080,
+    open: "/",
+    port: 3000,
     proxy: {},
+  },
+  build: {
+    // build目录名称，默认为"dist"
+    outDir: "build",
+    // 静态资源存放目录名称，默认为"assets"
+    assetsDir: "static",
+    // 生成map文件，默认为false（不建议设置）
+    sourcemap: false,
   },
   plugins: [react()],
   resolve: {
     alias: {
-      "@": "/src",
+      "@": path.resolve(__dirname, "src"),
     },
   },
   css: {

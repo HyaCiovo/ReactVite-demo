@@ -1,6 +1,7 @@
 import React from "react";
 import ErrorPage from "@/pages/404";
 import { Route, Routes } from "react-router-dom";
+import { Space, Spin } from "antd";
 
 
 interface router {
@@ -10,6 +11,13 @@ interface router {
   children?: Array<router>;
 }
 
+const Loading = () => {
+  return (
+    <Space size="middle">
+      <Spin size="large" tip="loading..." />
+    </Space>
+  )
+}
 const routers: Array<router> = [
   {
     name: "Home",
@@ -38,10 +46,11 @@ const Router = () => {
     <Routes>
       {routers.map(item => {
         return <Route
+          index
           key={item.name}
           path={item.path}
           element={
-            <React.Suspense>
+            <React.Suspense fallback={<Loading />}>
               <item.element />
             </React.Suspense>
           } />
